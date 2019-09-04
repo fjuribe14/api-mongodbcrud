@@ -1,0 +1,48 @@
+<% include ../layout/header %> <% include ../layout/navbar %>
+
+<div class="row justify-content-center p-5 m-0">
+	<h1 class="w-100 text-center text-muted my-3">Data List</h1>
+
+	<table
+		class="table table-responsive-md table-hover text-center border shadow-sm my-3"
+	>
+		<thead class="text-uppercase bg-dark text-success">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">name</th>
+				<th scope="col">email</th>
+				<th scope="col">age</th>
+				<th scope="col">gender</th>
+				<th scope="col">edit</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% datas.forEach((data, count) => { %>
+			<tr>
+				<th scope="row"><%= count %></th>
+				<td><%= data.name%></td>
+				<td><%= data.email%></td>
+				<td><%= data.age%></td>
+				<td><%= data.gender%></td>
+				<td class="d-flex justify-content-center">
+					<a href="/data/update/<%= data._id%>" class="fas fa-edit text-dark"></a>
+					<a href="/data/delete/<%= data._id%>" class="fas fa-trash text-danger ml-3"></a>
+				</td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+
+	<a href="/data/new" class="btn btn-secondary m-3">
+		<b>new data</b>
+		<i class="fas fa-plus ml-2"></i>
+	</a>
+
+	<a href="/data/data.xlsx" class="btn btn-success text-white m-3" download="data.xlsx">
+		<b>Download Data</b>
+		<i class="fas fa-download ml-2"></i>
+	</a>
+	
+</div>
+
+<% include ../layout/footer %>

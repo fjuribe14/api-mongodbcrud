@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // routes
 app.use(require('./routes/home'))
+app.use('/data', require('./routes/data'))
 
 // listen
 async function server(){
